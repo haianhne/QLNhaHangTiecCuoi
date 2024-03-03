@@ -9,8 +9,8 @@ router.register('menu', views.MenuViewSet)
 router.register('fooditem', views.FoodItemViewSet)
 router.register('feedback', views.FeedbackViewSet)
 router.register('order', views.OrderViewSet)
+router.register('user', views.UserViewset)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('login/', views.LoginView.as_view(), name='login'),
 ]

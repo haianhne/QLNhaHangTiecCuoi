@@ -54,7 +54,6 @@ urlpatterns = [
     path('o/revoke_token/', RevokeTokenView.as_view(), name='revoke-token'),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('token/', TokenView.as_view(), name='token'),
-    path('login/', views.LoginView.as_view(), name='login'),
     path('__debug__/', include(debug_toolbar.urls)),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$',
             schema_view.without_ui(cache_timeout=0),

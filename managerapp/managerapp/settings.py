@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'debug_toolbar',
     'oauth2_provider',
-
+    'corsheaders',
 ]
 
 CKEDITOR_UPLOAD_PATH = "ckeditor/images/"
@@ -66,11 +66,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'oauth2_provider.middleware.OAuth2TokenMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': '2',
+    'PAGE_SIZE': '20',
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
     )
@@ -91,7 +95,7 @@ OAUTH2_PROVIDER = {
 }
 
 AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.odelBackend',
+    'django.contrib.auth.backends.ModelBackend',
     'oauth2_provider.backends.OAuth2Backend',
 )
 

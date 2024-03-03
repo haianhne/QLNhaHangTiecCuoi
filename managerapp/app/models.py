@@ -6,6 +6,9 @@ from ckeditor.fields import RichTextField
 
 class User(AbstractUser):
     avatar = CloudinaryField('avatar', null=True)
+    # is_admin = models.BooleanField(default=False)
+    # is_employee = models.BooleanField(default=False)
+    # is_customer = models.BooleanField(default=False)
 
 
 class BaseModel(models.Model):
